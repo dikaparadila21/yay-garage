@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yay Garage — Motor Trail</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <a class="brand" href="#">
+      <span class="brand-mark">YG</span>
+      <span><strong>YAY GARAGE</strong><small>MOTOR TRAIL</small></span>
+    </a>
+    <nav>
+      <a class="active" href="#katalog">Katalog</a>
+      <a href="#tentang">Tentang</a>
+      <button class="admin-btn" id="openAdmin">Kelola Produk</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <p class="eyebrow">SHOWROOM MOTOR TRAIL</p>
+        <h1>PILIH MOTOR<br><em>SIAP TEMPAH!</em></h1>
+        <p>Kumpulan motor trail pilihan untuk petualangan tanpa batas.</p>
+        <a class="cta" href="#katalog">LIHAT UNIT <span>↗</span></a>
+      </div>
+      <div class="hero-art"><span>YG</span></div>
+    </section>
+
+    <section class="catalog" id="katalog">
+      <div class="section-head">
+        <div><p class="eyebrow dark">UNIT TERSEDIA</p><h2>KOLEKSI MOTOR</h2></div>
+        <div class="tools">
+          <input id="search" type="search" placeholder="Cari motor..." aria-label="Cari motor">
+          <select id="typeFilter" aria-label="Filter tipe">
+            <option value="">Semua tipe</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid" id="productGrid"></div>
+      <div class="empty" id="emptyState">Belum ada motor yang cocok.</div>
+    </section>
+
+    <section class="about" id="tentang">
+      <div><p class="eyebrow">YAY GARAGE</p><h2>SIAP UNTUK<br>RUTE APA SAJA</h2></div>
+      <p>Temukan motor trail dengan kondisi terbaik, transparan, dan siap dipakai. Hubungi kami untuk cek unit, test ride, dan informasi terbaru.</p>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand" href="#"><span class="brand-mark">YG</span><span><strong>YAY GARAGE</strong><small>MOTOR TRAIL</small></span></a>
+    <p>© 2026 Yay Garage</p>
+  </footer>
+
+  <dialog id="productModal">
+    <form method="dialog" class="modal-card" id="productForm">
+      <div class="modal-head"><div><p class="eyebrow dark">DATA UNIT</p><h3 id="modalTitle">Tambah Motor</h3></div><button type="button" class="close" id="closeModal">×</button></div>
+      <input type="hidden" id="productId">
+      <div class="form-grid">
+        <label>Nama Motor<input id="name" required placeholder="Contoh: Honda CRF 150L"></label>
+        <label>Tipe Motor<input id="type" required placeholder="Contoh: 150 CC"></label>
+        <label>Harga (Rp)<input id="price" required type="number" min="0" placeholder="35000000"></label>
+        <label>Status<select id="status"><option>Ready</option><option>Inden</option><option>Terjual</option></select></label>
+        <label class="full">Deskripsi<textarea id="description" rows="3" placeholder="Kondisi, tahun, transmisi, dan keterangan unit..."></textarea></label>
+        <label class="full">Foto Motor<input id="imageFile" type="file" accept="image/*"></label>
+      </div>
+      <div class="preview" id="imagePreview"></div>
+      <button class="save-btn" type="submit">SIMPAN UNIT</button>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
